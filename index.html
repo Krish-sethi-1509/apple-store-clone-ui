@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Apple Store – Inspired Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: #000;
+      color: #f5f5f7;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* TOP NAVBAR */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .top-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .top-nav-logo {
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .top-nav-logo img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .top-nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .top-nav li a {
+      display: block;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      color: #f5f5f7;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .top-nav li a:hover {
+      background-color: #1f1f1f;
+      color: #fff;
+    }
+
+    /* HERO / WELCOME SECTION */
+    .hero {
+      background: radial-gradient(circle at top, #1f1f1f, #000);
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 16px 60px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #86868b;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #d2d2d7;
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: #0071e3;
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0, 113, 227, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #0580ff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 113, 227, 0.55);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #2997ff;
+      border: 1px solid #2997ff;
+    }
+
+    .btn-ghost:hover {
+      background: #0b283f;
+      transform: translateY(-1px);
+    }
+
+    /* GENERIC SECTION */
+    .section {
+      padding: 40px 16px 32px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #a1a1a6;
+    }
+
+    .section-link {
+      font-size: 0.85rem;
+      color: #2997ff;
+      white-space: nowrap;
+    }
+
+    /* PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      background: linear-gradient(145deg, #151515, #101014);
+      border-radius: 24px;
+      padding: 14px 14px 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
+      background: linear-gradient(145deg, #1b1b1f, #111118);
+    }
+
+    .product-card img {
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .product-price {
+      font-size: 0.9rem;
+      color: #a1a1a6;
+      margin-bottom: 6px;
+    }
+
+    .product-tagline {
+      font-size: 0.8rem;
+      color: #6e6e73;
+    }
+
+    /* FULL-WIDTH ACCESSORY CARD */
+    .product-grid-full {
+      display: grid;
+      gap: 20px;
+    }
+
+    .accessory-banner {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+      margin-top: 10px;
+    }
+
+    .accessory-banner img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      filter: saturate(110%);
+    }
+
+    .accessory-banner-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 32px;
+      background: linear-gradient(
+        120deg,
+        rgba(0, 0, 0, 0.65),
+        transparent,
+        transparent
+      );
+    }
+
+    .accessory-banner-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 4px;
+    }
+
+    .accessory-banner-content p {
+      color: #d2d2d7;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .accessory-banner-content a {
+      font-size: 0.9rem;
+      color: #2997ff;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #050505;
+      border-top: 1px solid #1d1d1f;
+      margin-top: 40px;
+      padding: 30px 16px 40px;
+      color: #86868b;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-detail p {
+      margin-bottom: 6px;
+    }
+
+    .footer-welcome {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 16px 0 18px;
+      color: #d2d2d7;
+      font-size: 0.9rem;
+    }
+
+    .footer-welcome .apple-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #f5f5f7;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .footer-columns ul {
+      list-style: none;
+    }
+
+    .footer-columns li {
+      margin-bottom: 4px;
+    }
+
+    .footer-columns h4 {
+      font-size: 0.85rem;
+      color: #d2d2d7;
+      margin-bottom: 6px;
+    }
+
+    .footer-columns a {
+      color: #86868b;
+      font-size: 0.78rem;
+    }
+
+    .footer-columns a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-contact {
+      margin: 12px 0;
+    }
+
+    .footer-contact a {
+      color: #2997ff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #1d1d1f;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #86868b;
+    }
+
+    .footer-links span {
+      color: #2c2c2e;
+    }
+
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 90px;
+      background: #1d1d1f;
+      border-radius: 999px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f5f5f7;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-inner {
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .top-nav-inner::-webkit-scrollbar {
+        display: none;
+      }
+
+      .accessory-banner img {
+        height: 220px;
+      }
+
+      .accessory-banner-content {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- TOP NAV -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="top-nav-logo">
+        <!-- Apple logo from web (no local C:\ path) -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+          alt="Apple"
+        />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#store">Store</a></li>
+          <li><a href="#mac">Mac</a></li>
+          <li><a href="#iphone">iPhone</a></li>
+          <li><a href="#watch">Watch</a></li>
+          <li><a href="#ipad">iPad & TV</a></li>
+          <li><a href="#accessories">Accessories</a></li>
+          <li><a href="#support">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="store" class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">APPLE ONLINE STORE</p>
+      <h1 class="hero-title">Shop for your favorite Apple products.</h1>
+      <p class="hero-subtitle">
+        From Mac to iPhone, Watch to Apple TV — explore the lineup, compare
+        models, and find the one that fits your world.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="scrollToSection('mac')">
+          Shop Mac
+        </button>
+        <button class="btn btn-ghost" onclick="scrollToSection('iphone')">
+          View iPhone lineup
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAC SECTION -->
+  <section id="mac" class="section product-mac">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Mac</h2>
+          <p class="section-subtitle">Power for every kind of pro.</p>
+        </div>
+        <a href="#mac" class="section-link">Explore all Mac &rsaquo;</a>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/macbook-air-segment?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1573580916082"
+            alt="MacBook Air"
+          />
+          <div class="product-name">MacBook Air</div>
+          <div class="product-price">From ₹107,990</div>
+          <div class="product-tagline">Light. Speedy. All-day battery.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/macbook-pro-segment-2019?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1573580916135"
+            alt="MacBook Pro"
+          />
+          <div class="product-name">MacBook Pro</div>
+          <div class="product-price">From ₹149,990</div>
+          <div class="product-tagline">Serious power for serious workflows.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/imac-segment?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1570232081431"
+            alt="iMac"
+          />
+          <div class="product-name">iMac</div>
+          <div class="product-price">From ₹129,990</div>
+          <div class="product-tagline">All-in-one. All in color.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/imac-pro-segment?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1570231926191"
+            alt="iMac Pro"
+          />
+          <div class="product-name">iMac Pro</div>
+          <div class="product-price">From ₹149,900</div>
+          <div class="product-tagline">Power workstation for pros.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mac-pro-segment?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1524766968633"
+            alt="Mac Pro"
+          />
+          <div class="product-name">Mac Pro</div>
+          <div class="product-price">From ₹114,900</div>
+          <div class="product-tagline">Extreme performance.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mac-mini-segment?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1539466285370"
+            alt="Mac mini"
+          />
+          <div class="product-name">Mac mini</div>
+          <div class="product-price">From ₹59,900</div>
+          <div class="product-tagline">Compact. Capable. Versatile.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- iPHONE SECTION -->
+  <section id="iphone" class="section product-iphone">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">iPhone</h2>
+          <p class="section-subtitle">A device like no other.</p>
+        </div>
+        <a href="#iphone" class="section-link">Compare iPhone models &rsaquo;</a>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-11-pro-segment-201909?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1567201566801"
+            alt="iPhone 11 Pro"
+          />
+          <div class="product-name">iPhone 11 Pro</div>
+          <div class="product-price">From ₹57,099</div>
+          <div class="product-tagline">Pro cameras. Pro display. Pro performance.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-11-segment-201909?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1567201566851"
+            alt="iPhone 11"
+          />
+          <div class="product-name">iPhone 11</div>
+          <div class="product-price">From ₹40,900</div>
+          <div class="product-tagline">Just the right amount of everything.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-xr-segment?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1535393884526"
+            alt="iPhone XR"
+          />
+          <div class="product-name">iPhone XR</div>
+          <div class="product-price">From ₹37,900</div>
+          <div class="product-tagline">Brilliant. In every way.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/segment-hero-iphone-8-201709?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1504891668190"
+            alt="iPhone 8"
+          />
+          <div class="product-name">iPhone 8</div>
+          <div class="product-price">From ₹32,900</div>
+          <div class="product-tagline">Classic design. Powerful features.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH SECTION -->
+  <section id="watch" class="section product-watch">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Apple Watch</h2>
+          <p class="section-subtitle">More than a watch. It’s a life companion.</p>
+        </div>
+        <a href="#watch" class="section-link">Browse all models &rsaquo;</a>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/apple-watch-series-5-segment-201909?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1567038391208"
+            alt="Apple Watch Series 5"
+          />
+          <div class="product-name">Series 5</div>
+          <div class="product-price">From ₹40,900</div>
+          <div class="product-tagline">Always-On Retina display.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/apple-watch-nike-segment-201909?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1567202843775"
+            alt="Apple Watch Nike"
+          />
+          <div class="product-name">Apple Watch Nike</div>
+          <div class="product-price">From ₹13,400</div>
+          <div class="product-tagline">Built for athletes. Co-designed with Nike.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/apple-watch-hermes-segment-201909?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1568373934272"
+            alt="Apple Watch Hermes"
+          />
+          <div class="product-name">Hermès</div>
+          <div class="product-price">From ₹102,583</div>
+          <div class="product-tagline">Iconic style meets innovation.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/apple-watch-edition-segment-201909?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1568066151825"
+            alt="Apple Watch Edition Series 5"
+          />
+          <div class="product-name">Edition Series 5</div>
+          <div class="product-price">From ₹41,400</div>
+          <div class="product-tagline">Premium materials. Ultimate finish.</div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/apple-watch-series-3-segment-201909?wid=800&hei=600&fmt=png-alpha&qlt=80&.v=1567038391348"
+            alt="Apple Watch Series 3"
+          />
+          <div class="product-name">Series 3</div>
+          <div class="product-price">From ₹12,900</div>
+          <div class="product-tagline">Essentials at an incredible value.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IPOD + TV / ACCESSORIES SECTION -->
+  <section id="ipad" class="section product-ipad">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">iPod & Apple TV</h2>
+          <p class="section-subtitle">Entertainment, everywhere you go.</p>
+        </div>
+        <a href="#ipad" class="section-link">See entertainment options &rsaquo;</a>
+      </div>
+
+      <div class="product-grid-full">
+        <div class="product-grid">
+          <div class="product-card">
+            <img
+              src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/segment-hero-ipod-touch-201509?wid=400&hei=300&fmt=png-alpha&.v=1491260462715"
+              alt="iPod Touch"
+            />
+            <div class="product-name">iPod Touch</div>
+            <div class="product-price">From ₹18,900</div>
+            <div class="product-tagline">Music, games, and more in your pocket.</div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/segment-hero-apple-tv4k-201709?wid=400&hei=300&fmt=png-alpha&.v=1504891668090"
+              alt="Apple TV 4K"
+            />
+            <div class="product-name">Apple TV 4K</div>
+            <div class="product-price">From ₹150,000</div>
+            <div class="product-tagline">4K HDR. A higher definition of TV.</div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/segment-hero-apple-tv4k-201709?wid=400&hei=300&fmt=png-alpha&.v=1504891668090"
+              alt="Apple TV HD"
+            />
+            <div class="product-name">Apple TV HD</div>
+            <div class="product-price">From ₹132,000</div>
+            <div class="product-tagline">Full HD, big entertainment.</div>
+          </div>
+        </div>
+
+        <div id="accessories" class="accessory-banner">
+          <img
+            src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/smb-accessories-201908?wid=1070&hei=480&fmt=png-alpha&.v=1563990869846"
+            alt="Accessories"
+          />
+          <div class="accessory-banner-content">
+            <h2>Accessories</h2>
+            <p>Get things done in style, and make your Apple devices truly yours.</p>
+            <a href="#">Shop accessories &rsaquo;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / SUPPORT -->
+  <footer id="support">
+    <div class="footer-inner">
+      <div class="footer-detail">
+        <p>Prices are inclusive of VAT. Free delivery for all orders.</p>
+        <p>
+          *Total order value must be less than 30,000 THB. Admin fee may be charged
+          by bank/processing entity in addition to order value.
+        </p>
+        <p>
+          **For approved customers only. Subject to approval. For more
+          information, see
+          <a href="#">http://www.apple.com/th-en/help/payments.</a>
+        </p>
+      </div>
+
+      <div class="footer-welcome">
+        <span class="apple-icon"></span>
+        <span>&rsaquo;</span>
+        <p>Welcome to the Apple Store</p>
+      </div>
+
+      <div class="footer-columns">
+        <ul>
+          <li><h4>Shop and Learn</h4></li>
+          <li><a href="#mac">Mac</a></li>
+          <li><a href="#ipad">iPad</a></li>
+          <li><a href="#iphone">iPhone</a></li>
+          <li><a href="#watch">Apple Watch</a></li>
+          <li><a href="#ipad">TV</a></li>
+          <li><a href="#ipad">Music</a></li>
+          <li><a href="#ipad">iTunes</a></li>
+          <li><a href="#ipad">iPod Touch</a></li>
+          <li><a href="#accessories">Accessories</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+
+        <ul>
+          <li><h4>Apple Store</h4></li>
+          <li><a href="#">Apple Store App</a></li>
+          <li><a href="#">Financing</a></li>
+          <li><a href="#">Order Status</a></li>
+          <li><a href="#">Shopping Help</a></li>
+        </ul>
+
+        <ul>
+          <li><h4>For Education</h4></li>
+          <li><a href="#">Apple and Education</a></li>
+          <li><a href="#">Shop for College</a></li>
+          <li><h4>For Business</h4></li>
+          <li><a href="#">Apple and Business</a></li>
+          <li><a href="#">Shop for Business</a></li>
+        </ul>
+
+        <ul>
+          <li><h4>Account</h4></li>
+          <li><a href="#">Manage Your Apple ID</a></li>
+          <li><a href="#">Apple Store Account</a></li>
+          <li><a href="#">iCloud.com</a></li>
+          <li><h4>Apple Values</h4></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Environment</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Supplier Responsibility</a></li>
+        </ul>
+
+        <ul>
+          <li><h4>About Apple</h4></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Investors</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Contact Apple</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <p>
+          More ways to shop: visit an
+          <a href="#">Apple Store</a>, call 001-800-65-6957, or
+          <a href="#">find a seller</a>.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2019 Apple Inc. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a><span>|</span>
+          <a href="#">Terms of Use</a><span>|</span>
+          <a href="#">Sales and Refunds</a><span>|</span>
+          <a href="#">Legal</a><span>|</span>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <div class="back-to-top" id="backToTop" title="Back to top">⌃</div>
+
+  <script>
+    // Smooth scroll for internal links
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          scrollToSection(targetId);
+        }
+      });
+    });
+
+    // Back to top button visibility
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
